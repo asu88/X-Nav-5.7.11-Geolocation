@@ -27,7 +27,9 @@ map.on('click', onMapClick);
 map.locate({setView: true, maxZoom: 16});
 
 function onLocationFound(e) {
-    var radius = e.accuracy /2;
+
+    var radius = e.accuracy / 2;
+
 
     L.marker(e.latlng).addTo(map)
         .bindPopup("Tu ubicación actual es esta, con una precisión de " + radius + " metros ").openPopup();

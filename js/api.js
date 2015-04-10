@@ -1,9 +1,22 @@
+/*
+var map = new ol.Map({
+    target: 'map',
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.MapQuest({layer: 'sat'})
+      })
+    ],
+    view: new ol.View({
+      center: ol.proj.transform([40.2838, -3.8215], 'EPSG:4326', 'EPSG:3857'),
+      zoom: 6
+    })
+  }); */
 
 
 var map = L.map('map');/*.setView([40.2838, -3.8215], 13); */
 
 
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',{
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
              attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',      
      maxZoom: 18
 }).addTo(map);
@@ -13,16 +26,17 @@ L.marker([40.2838, -3.8215]).addTo(map)
     .bindPopup(' Universidad Rey Juan Carlos, Aulario III')
     .openPopup(); */
 
-/* Meter un Popup, de tal forma que al clikear sobre el mapa se muestren las coordenadas del sitio */
+/* Meter un Popup, de tal forma que al clikear sobre el mapa se muestren las coordenadas del sitio 
 var popup = L.popup();
 
-/* CallBack que se ejecuta al clikear sobre el mapa */
+
+/* CallBack que se ejecuta al clikear sobre el mapa 
 function onMapClick(e) {
     popup.setLatLng(e.latlng).setContent("Coordenadas " + e.latlng.toString())
     .openOn(map);
 }
 
-map.on('click', onMapClick);
+map.on('click', onMapClick); */
 
 map.locate({setView: true, maxZoom: 16});
 
@@ -37,6 +51,8 @@ function onLocationFound(e) {
     L.circle(e.latlng, radius).addTo(map);
 }
 
-map.on('locationfound', onLocationFound);
+map.on('locationfound', onLocationFound); 
+
+
 
 
